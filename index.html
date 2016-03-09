@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>移动端 - 时间选择器</title>
+	<link rel="stylesheet" type="text/css" href="css/mtimer.css">
+	<style type="text/css" media="screen">
+		body,ul,h1,h2,h3 {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style-type: none;
+		}
+		a {
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="picktime" value="03-27 15:00" readonly></input>
+	<script type="text/javascript" src="js/zepto.js"></script>
+	<script type="text/javascript" src="js/mtimer.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			var opts = {
+				dateStart : new Date(), // 开始时间
+				dateNum : 10,			// 天数
+				timeStart : 9,			// 开始时刻
+				timeNum : 2,			// 小时数(从开始到结束的总时长)
+				onOk : function() {		// 点击确定的回调函数
+					console.log('你选择了时间...');
+				},
+				onCancel : function() {	// 点击取消的回调函数
+					console.log('你取消了选择...');
+				},
+				interval : 2,			// 时间间隔(单位秒)
+			};
+			$('#picktime').mtimer(opts);
+		});
+
+	</script>
+</body>
+</html>
